@@ -3,6 +3,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+https://github.com/ilhamkaddouri/TodoList-Redux/blob/main/public/todolist.PNG?raw=true
+![alt text](https://github.com/ilhamkaddouri/TodoList-Redux/blob/main/public/todolist.PNG?raw=true)
 
 In the project directory, you can run:
 
