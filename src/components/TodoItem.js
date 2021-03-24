@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './todos.css'
 import {connect} from 'react-redux'
 import DoneIcon from '@material-ui/icons/Done';
@@ -7,14 +7,20 @@ import EditIcon from '@material-ui/icons/Edit';
 import { IconButton} from '@material-ui/core'
 import {deleteTodos,updateTodos} from '../redux/index'
 function TodoItem({todo,deletetodo, updatetodo}) {
+    const [disabled, setDisabled]= useState(true)
+    const [title, setTitle]= useState(todo.title)
+    function handleInputClik(){
+        
+        setDisabled(!disabled)
+      } 
     return (
         <div className="todo-item" >
-            <p className={todo.completed ? 'todo-done' : ""}>{todo.title}</p>
+            <input className="input-todo" onChange={(e)=>setTitle(e.target.value)} disabled={disabled} className={todo.completed ? 'todo-done' : "input-todo"} value={todo.title}/>
             <div className="btns">
                 <IconButton onClick={()=> updatetodo(todo._id)} disabled={todo.completed}>
                     <DoneIcon className={todo.completed ? 'btn-done':"btn-notdone" }/>
                 </IconButton>
-                <IconButton onClick={()=> updatetodo(todo._id)} disabled={todo.completed}>
+                <IconButton onClick={()=> {handleInputClik()}} disabled={todo.completed}>
                     <EditIcon className={todo.completed ? 'btn-done':"btn-edit" }/>
                 </IconButton>
                 <IconButton onClick={()=> deletetodo(todo._id)}>
